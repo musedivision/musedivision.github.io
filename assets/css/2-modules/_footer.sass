@@ -1,0 +1,38 @@
+// footer
+footer
+  background-color: $footer-colour
+  color: #fff
+  .footer-content
+    display: flex
+    // justify-content: center
+    // align-items: center
+    flex-wrap: wrap
+    .logo
+      max-height: 200px
+    .col
+      flex: 1
+  .row.footer-content#info
+    margin-top: -90px
+  @media (max-width:435px)
+    .row.footer-content#info
+      margin-top: -70px
+    .footer-content
+      flex-direction: column
+    .num2
+      order: -1
+  .social
+    max-height: 40px
+    padding-left: 15px
+    padding-right: 15px
+
+.title-btn
+  background: white
+  color: black
+  border-radius: 3px
+  margin: 10px
+  border-width: 2px
+  border-color: white
+  &:hover
+    background: black
+    color: white
+    border-width: 2px

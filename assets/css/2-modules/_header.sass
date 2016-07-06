@@ -1,0 +1,111 @@
+// header and nav stuff
+header
+  background-color: $header-colour
+
+  nav
+    display: flex
+    justify-content: space-around
+    align-items: center
+    height: $nav-height
+    z-index: 2 !important
+    .mobile, .navOverlay
+      display: none
+    .logo
+      max-height: (6.5 * $nav-height / 10)
+      z-index: 2 !important
+
+      // filter: drop-shadow(2px 2px 1px $dimgrey)
+    ul
+      display: flex
+      justify-content: space-between
+      z-index: 2 !important
+      margin: 0
+
+
+
+      li
+        margin: 0
+        padding: 10px
+        &:hover
+          background-color: transparentize(#fff, 0.90)
+        a
+          color: $nav-links
+          text-decoration: none
+
+
+  // mobile nav
+  @media (max-width:435px)
+    nav
+      justify-content: center
+      // darken screen behind mobile nav when active
+      .navOverlay
+        display: block !important
+        position: fixed
+        background-color: none
+        z-index: -1
+        bottom: 0
+        right: 0
+        left: 0
+        top: 0
+      .desk
+        display: none
+      .mobile
+        display: block !important
+        ul, li
+          margin: 0
+          padding: 0
+        .toggle
+          color: #fff
+        // positioning && size
+        position: fixed
+        bottom: 0
+        right: 0
+        padding: 5px 15px
+        margin: 15px 15px
+        // the transparent background
+        background-color: $mobile-Nav-Overlay
+        border-radius: 50px
+        font-size: 35px !important
+      .menu
+        transition: all 0.3s ease
+        flex-direction: column
+        align-items: center
+        list-style: none
+        z-index: 1
+        margin: 80px -270px
+        border-radius: 10px
+        padding: 10px 20px
+        color: white
+        label
+          color: $nav-links
+        i
+          font-size: 2em
+
+        h5
+          margin-top: 0
+        li
+          margin: 0px
+          a
+            color: $nav-links
+            text-decoration: none
+
+#mobileNavToggle
+  display: none
+  &:checked + nav
+    .mobile
+      animation:
+        name: blur-button
+        duration: 0.3s
+        iteration-count: 1
+    .menu
+      transition: all 0.3s ease
+      margin-right: -10px
+    .navOverlay
+      z-index: 1
+      transition: background-color 0.3s ease
+      background-color: transparentize(black, 0.1)
+@keyframes blur-button
+  0%
+    filter: brightness(80%)
+  100%
+    filter: brightness(100%)

@@ -1,0 +1,45 @@
+.banner-wrapper
+  height: $banner-height
+  // margin-top: $banner-margin
+  background-color: #fff
+
+  .banner-image
+    background:
+      image: url(/assets/img/rabbitbanner2.svg)
+      size: 45%
+      // specifies the positioning if the image doesnt fit space
+      position: 50% 40%
+      repeat: no-repeat
+    height: 100%
+@media (max-width:435px)
+  .banner-wrapper
+    height: 400px
+    .banner-image
+      background:
+        image: url(/assets/img/rabbitbanner2.svg)
+        position: 0% 0%
+        size: 100%
+@media (min-width: 760px) and (max-width:1080px)
+  .banner-image
+    background-size: 70%
+
+    // .overlay
+    //   position: absolute
+    //   background-color: $overlay
+    //   z-index: 0
+    //   height: $banner-height
+    //   top: 0
+    //   left: 0
+    //   right: 0
+
+      .container
+        align-items: center
+        height: 250px
+        flex-direction: column
+        padding: 20px 50px
+        margin: 100px 50px 0px 50px
+        color: #fff
+        // background-color: transparentize($red, 0.5)
+        @media (max-width:435px)
+          margin-top: 70px
+          padding-top: 0px

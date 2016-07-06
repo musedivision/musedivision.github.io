@@ -1,0 +1,23 @@
+{
+  "name": "mum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "browser-sync": "^2.12.5",
+    "es6-promise": "^3.1.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-pug": "^2.0.0",
+    "gulp-sass": "^2.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
