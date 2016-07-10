@@ -442,202 +442,109 @@ iframe#eveve {
     height: 540px; } }
 
 footer {
-  background-color: black;
-  color: #fff; }
-  footer .footer-content {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap; }
-    footer .footer-content .logo {
-      max-height: 200px; }
-    footer .footer-content .col {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-          -ms-flex: 1;
-              flex: 1; }
-  footer .row.footer-content#info {
-    margin-top: -90px; }
-  @media (max-width: 435px) {
-    footer .row.footer-content#info {
-      margin-top: -70px; }
-    footer .footer-content {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-              flex-direction: column; }
-    footer .num2 {
-      -webkit-box-ordinal-group: 0;
-      -webkit-order: -1;
-          -ms-flex-order: -1;
-              order: -1; } }
+  margin-top: 0 !important;
+  padding-top: 35px !important; }
   footer .social {
     max-height: 40px;
     padding-left: 15px;
     padding-right: 15px; }
-
-.title-btn {
-  background: white;
-  color: black;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
-  margin: 10px;
-  padding: 5px;
-  border-width: 2px;
-  border-color: white;
-  border-style: solid;
-  -webkit-transition: all ease 200ms;
-  transition: all ease 200ms; }
-  .title-btn:hover {
-    background: black;
-    color: white;
-    border-width: 2px; }
-
-header {
-  background-color: transparent; }
-  header nav {
+  footer .btn {
+    margin: 10px; }
+  footer img {
+    height: 50px; }
+  footer .belowLogo {
+    margin-top: 0; }
+  footer hr {
+    margin-bottom: 40px;
+    width: 60%;
+    height: 3px;
+    color: #fff;
+    background-color: #fff; }
+  footer h5 {
+    margin-top: 60px; }
+  footer img.sited {
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 7px; }
+  footer .phone {
+    margin-top: 15px !important; }
+  footer .footer-copyright {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
-            align-items: center;
-    height: 60px;
-    z-index: 2 !important; }
-    header nav .mobile, header nav .navOverlay {
-      display: none; }
-    header nav .logo {
-      max-height: 39px;
-      z-index: 2 !important; }
-    header nav ul {
+            align-items: center; }
+    footer .footer-copyright p {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
-          -ms-flex-pack: justify;
-              justify-content: space-between;
-      z-index: 2 !important;
-      margin: 0; }
-      header nav ul li {
-        margin: 0;
-        padding: 10px; }
-        header nav ul li:hover {
-          background-color: rgba(255, 255, 255, 0.1); }
-        header nav ul li a {
-          color: #fff;
-          text-decoration: none; }
-  @media (max-width: 435px) {
-    header nav {
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
       -webkit-box-pack: center;
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center; }
-      header nav .navOverlay {
-        display: block !important;
-        position: fixed;
-        background-color: none;
-        z-index: -1;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        top: 0; }
-      header nav .desk {
-        display: none; }
-      header nav .mobile {
-        display: block !important;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        padding: 5px 15px;
-        margin: 15px 15px;
-        background-color: rgba(244, 67, 54, 0.95);
-        -webkit-border-radius: 50px;
-                border-radius: 50px;
-        font-size: 35px !important; }
-        header nav .mobile ul, header nav .mobile li {
-          margin: 0;
-          padding: 0; }
-        header nav .mobile .toggle {
-          color: #fff; }
-      header nav .menu {
-        -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-            -ms-flex-align: center;
-                    -ms-grid-row-align: center;
-                align-items: center;
-        list-style: none;
-        z-index: 1;
-        margin: 80px -270px;
-        -webkit-border-radius: 10px;
-                border-radius: 10px;
-        padding: 10px 20px;
-        color: white; }
-        header nav .menu label {
-          color: #fff; }
-        header nav .menu i {
-          font-size: 2em; }
-        header nav .menu h5 {
-          margin-top: 0; }
-        header nav .menu li {
-          margin: 0px; }
-          header nav .menu li a {
-            color: #fff;
-            text-decoration: none; } }
+    footer .footer-copyright p.contact {
+      margin: 0 !important; }
+  footer .cited {
+    height: 100px; }
+  @media (max-width: 435px) {
+    footer hr {
+      display: none; }
+    footer h5 {
+      margin-top: 25px;
+      margin-bottom: 20px; } }
 
-#mobileNavToggle {
-  display: none; }
-  #mobileNavToggle:checked + nav .mobile {
-    -webkit-animation-name: blur-button;
-            animation-name: blur-button;
-    -webkit-animation-duration: 0.3s;
-            animation-duration: 0.3s;
-    -webkit-animation-iteration-count: 1;
-            animation-iteration-count: 1; }
-  #mobileNavToggle:checked + nav .menu {
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    margin-right: -10px; }
-  #mobileNavToggle:checked + nav .navOverlay {
-    z-index: 1;
-    -webkit-transition: background-color 0.3s ease;
-    transition: background-color 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.9); }
-
-@-webkit-keyframes blur-button {
-  0% {
-    -webkit-filter: brightness(80%);
-            filter: brightness(80%); }
-  100% {
-    -webkit-filter: brightness(100%);
-            filter: brightness(100%); } }
-
-@keyframes blur-button {
-  0% {
-    -webkit-filter: brightness(80%);
-            filter: brightness(80%); }
-  100% {
-    -webkit-filter: brightness(100%);
-            filter: brightness(100%); } }
+header nav {
+  z-index: 1;
+  height: 100px; }
+  header nav img {
+    max-height: 100px; }
+  header nav ul#nav-mobile {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    header nav ul#nav-mobile li {
+      font-size: .2em;
+      margin-top: 20px; }
+      header nav ul#nav-mobile li a {
+        -webkit-border-radius: 3px;
+                border-radius: 3px;
+        border-bottom: 4px;
+        border-bottom-style: solid;
+        -webkit-transition: all ease .6s;
+        transition: all ease .6s; }
+        header nav ul#nav-mobile li a:hover {
+          color: black;
+          background-color: #fff;
+          -webkit-border-radius: 3px;
+                  border-radius: 3px;
+          -webkit-transition: all ease .6s;
+          transition: all ease .6s; }
+        header nav ul#nav-mobile li a h5 {
+          font-size: 18px; }
 
 .banner-wrapper {
+  z-index: 100;
   height: 70vh;
   background-color: #fff; }
   .banner-wrapper .banner-image {
