@@ -6,20 +6,22 @@
 
   .banner-image
     background:
-      image: url(/assets/img/rabbitbanner2.svg)
-      size: 45%
+      image: url(/assets/img/11.jpg)
+      size: cover
       // specifies the positioning if the image doesnt fit space
-      position: 50% 40%
+      position: 50% 35%
       repeat: no-repeat
     height: 100%
 @media (max-width:435px)
+  #banLogo
+    margin-left: -10%
   .banner-wrapper
     height: 400px
     .banner-image
       background:
-        image: url(/assets/img/rabbitbanner2.svg)
+        image: url(/assets/img/11.jpg)
         position: 0% 0%
-        size: 100%
+        size: cover
 @media (min-width: 760px) and (max-width:1080px)
   .banner-image
     background-size: 70%
@@ -44,3 +46,6 @@
         @media (max-width:435px)
           margin-top: 70px
           padding-top: 0px
+
+#banLogo
+  height: ($banner-height)

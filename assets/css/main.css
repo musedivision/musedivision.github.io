@@ -548,23 +548,28 @@ header nav {
   height: 70vh;
   background-color: #fff; }
   .banner-wrapper .banner-image {
-    background-image: url(/assets/img/rabbitbanner2.svg);
-    background-size: 45%;
-    background-position: 50% 40%;
+    background-image: url(/assets/img/11.jpg);
+    background-size: cover;
+    background-position: 50% 35%;
     background-repeat: no-repeat;
     height: 100%; }
 
 @media (max-width: 435px) {
+  #banLogo {
+    margin-left: -10%; }
   .banner-wrapper {
     height: 400px; }
     .banner-wrapper .banner-image {
-      background-image: url(/assets/img/rabbitbanner2.svg);
+      background-image: url(/assets/img/11.jpg);
       background-position: 0% 0%;
-      background-size: 100%; } }
+      background-size: cover; } }
 
 @media (min-width: 760px) and (max-width: 1080px) {
   .banner-image {
     background-size: 70%; } }
+
+#banLogo {
+  height: 70vh; }
 
 .bookings {
   background-color: #fff; }
