@@ -548,7 +548,9 @@ header nav {
   height: 70vh;
   background-color: #fff; }
   .banner-wrapper .banner-image {
-    background-image: url(/assets/img/11.jpg);
+    -webkit-filter: saturate(1.4);
+            filter: saturate(1.4);
+    background-image: url(/assets/img/11.png);
     background-size: cover;
     background-position: 50% 35%;
     background-repeat: no-repeat;
@@ -558,11 +560,7 @@ header nav {
   #banLogo {
     margin-left: -10%; }
   .banner-wrapper {
-    height: 400px; }
-    .banner-wrapper .banner-image {
-      background-image: url(/assets/img/11.jpg);
-      background-position: 0% 0%;
-      background-size: cover; } }
+    height: 75vh; } }
 
 @media (min-width: 760px) and (max-width: 1080px) {
   .banner-image {
@@ -570,7 +568,35 @@ header nav {
 
 #banLogo {
   height: 46.66667vh;
-  margin-top: 14vh; }
+  margin: 14vh auto;
+  -webkit-animation-name: whatsupdoc;
+          animation-name: whatsupdoc;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+          animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s; }
+
+@-webkit-keyframes whatsupdoc {
+  0% {
+    -webkit-filter: blur(7px);
+            filter: blur(7px);
+    height: 35vh; }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    height: 46.66667vh; } }
+
+@keyframes whatsupdoc {
+  0% {
+    -webkit-filter: blur(7px);
+            filter: blur(7px);
+    height: 35vh; }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    height: 46.66667vh; } }
 
 .bookings {
   background-color: #fff; }
@@ -634,6 +660,19 @@ body {
   .banner-booking .inside-1 {
     margin-top: 8%; }
 
+.banner-about {
+  height: 200px;
+  background-image: url(/assets/img/about-min.png);
+  background-size: cover; }
+  .banner-about .inside {
+    margin-top: 60px; }
+
+.about-text {
+  font-size: 1.3cd co th; }
+
+#start-word {
+  font-size: 2em; }
+
 .menu {
   background-color: #fff; }
   .menu .topnav {
@@ -671,3 +710,11 @@ body {
 
 body {
   background: #fff; }
+
+.banner-menu {
+  height: 200px;
+  background-image: url(/assets/img/kitchen-min.png);
+  background-size: cover;
+  background-position: 50% 50%; }
+  .banner-menu .inside {
+    margin-top: 60px; }

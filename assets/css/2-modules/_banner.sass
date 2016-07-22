@@ -5,8 +5,9 @@
   background-color: #fff
 
   .banner-image
+    filter: saturate(1.4)
     background:
-      image: url(/assets/img/11.jpg)
+      image: url(/assets/img/11.png)
       size: cover
       // specifies the positioning if the image doesnt fit space
       position: 50% 35%
@@ -16,12 +17,7 @@
   #banLogo
     margin-left: -10%
   .banner-wrapper
-    height: 400px
-    .banner-image
-      background:
-        image: url(/assets/img/11.jpg)
-        position: 0% 0%
-        size: cover
+    height: 75vh
 @media (min-width: 760px) and (max-width:1080px)
   .banner-image
     background-size: 70%
@@ -48,5 +44,21 @@
           padding-top: 0px
 
 #banLogo
+
   height: (2* $banner-height/3)
-  margin-top: ($banner-height/5)
+  margin: ($banner-height/5) auto
+  animation:
+    name: whatsupdoc
+    delay: 1.5s
+    timing-function: cubic-bezier(0.22, 0.61, 0.36, 1)
+    duration: 2s
+
+
+
+@keyframes whatsupdoc
+  0%
+    filter: blur(7px)
+    height: (3* $banner-height/3)/2
+  100%
+    filter: blur(0px)
+    height: (2* $banner-height/3)
