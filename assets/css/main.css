@@ -569,7 +569,8 @@ header nav {
     background-size: 70%; } }
 
 #banLogo {
-  height: 70vh; }
+  height: 46.66667vh;
+  margin-top: 14vh; }
 
 .bookings {
   background-color: #fff; }
@@ -625,6 +626,13 @@ header nav {
 
 body {
   background-color: #fff; }
+
+.banner-booking {
+  height: 200px;
+  background-image: url(/assets/img/booking-auckland21.jpg);
+  background-size: cover; }
+  .banner-booking .inside-1 {
+    margin-top: 8%; }
 
 .menu {
   background-color: #fff; }
