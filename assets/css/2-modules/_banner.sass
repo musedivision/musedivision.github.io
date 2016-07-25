@@ -1,64 +1,21 @@
-.banner-wrapper
-  z-index: 100
-  height: $banner-height
-  // margin-top: $banner-margin
-  background-color: #fff
+.banner-city
+  height: 450px
+  background:
+    image: url(/assets/img/banner-bg.png)
+    size: cover
+    position: 50% 50%
+  filter: saturate(2)
 
-  .banner-image
-    filter: saturate(1.4)
-    background:
-      image: url(/assets/img/11.png)
-      size: cover
-      // specifies the positioning if the image doesnt fit space
-      position: 50% 35%
-      repeat: no-repeat
-    height: 100%
-@media (max-width:435px)
-  #banLogo
-    margin-left: -10%
-  .banner-wrapper
-    height: 75vh
-@media (min-width: 760px) and (max-width:1080px)
-  .banner-image
-    background-size: 70%
-
-    // .overlay
-    //   position: absolute
-    //   background-color: $overlay
-    //   z-index: 0
-    //   height: $banner-height
-    //   top: 0
-    //   left: 0
-    //   right: 0
-
-      .container
-        align-items: center
-        height: 250px
-        flex-direction: column
-        padding: 20px 50px
-        margin: 100px 50px 0px 50px
-        color: #fff
-        // background-color: transparentize($red, 0.5)
-        @media (max-width:435px)
-          margin-top: 70px
-          padding-top: 0px
-
-#banLogo
-
-  height: (2* $banner-height/3)
-  margin: ($banner-height/5) auto
-  animation:
-    name: whatsupdoc
-    delay: 1.5s
-    timing-function: cubic-bezier(0.22, 0.61, 0.36, 1)
-    duration: 2s
+#herologo
+  margin: 50px 0px
+  height: 300px
+  filter: invert(100%)
+  animation: intro
+    timing-function: ease 2s
 
 
-
-@keyframes whatsupdoc
+@keyframes intro
   0%
-    filter: blur(7px)
-    height: (3* $banner-height/3)/2
+    transform: scale(0.1)
   100%
-    filter: blur(0px)
-    height: (2* $banner-height/3)
+    transform: scale(1)
