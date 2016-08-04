@@ -541,18 +541,16 @@ header nav {
           font-size: 18px; }
 
 .banner-city {
-  height: 450px;
-  background-image: url(/assets/img/banner-bg.png);
+  height: 70vh;
+  background-image: url(/assets/img/skuxapartmnet.jpg);
   background-size: cover;
-  background-position: 50% 50%;
-  -webkit-filter: saturate(2);
-          filter: saturate(2); }
+  background-position: 50% 20%;
+  -webkit-filter: saturate(0.8);
+          filter: saturate(0.8); }
 
 #herologo {
-  margin: 50px 0px;
+  margin: 200px 0px;
   height: 300px;
-  -webkit-filter: invert(100%);
-          filter: invert(100%);
   -webkit-animation: intro;
           animation: intro;
     -webkit-animation-timing-function: ease 2s;
