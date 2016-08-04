@@ -1,1 +1,2 @@
-# Sited freelance web development landing page
+# skux
+The two sides of she - album release. Skux or sux 
