@@ -459,9 +459,10 @@ footer {
     width: 60%;
     height: 3px;
     color: #fff;
-    background-color: #fff; }
+    background-color: #fff;
+    display: none; }
   footer h5 {
-    margin-top: 60px; }
+    margin-top: 40px; }
   footer img.sited {
     height: 30px;
     margin-top: 20px;
@@ -494,8 +495,10 @@ footer {
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center; }
-    footer .footer-copyright p.contact {
-      margin: 0 !important; }
+    footer .footer-copyright .contact p {
+      margin: 0 !important;
+      font-size: 1.2em;
+      font-style: italic; }
   footer .cited {
     height: 100px; }
   @media (max-width: 435px) {
@@ -504,6 +507,13 @@ footer {
     footer h5 {
       margin-top: 25px;
       margin-bottom: 20px; } }
+
+.hours p {
+  font-size: 1.2em;
+  margin: 0; }
+
+.hours .italio {
+  font-style: italic; }
 
 header nav {
   z-index: 1;
@@ -718,3 +728,27 @@ body {
   background-position: 50% 50%; }
   .banner-menu .inside {
     margin-top: 60px; }
+
+.indexabout .carousel.carousel-slider {
+  height: 500px !important; }
+  .indexabout .carousel.carousel-slider .carousel-item {
+    display: block; }
+
+@media (max-width: 435px) {
+  .indexabout .carousel.carousel-slider {
+    height: 300px !important; } }
+
+@media (min-width: 1024px) {
+  .indexabout img {
+    position: relative;
+    top: -100px; } }
+
+.menusection #foodpic {
+  background-image: url(/assets/img/platter.jpg);
+  background-size: cover;
+  height: 300px; }
+
+.menusection #bookingpic {
+  background-image: url(/assets/img/glass.jpg);
+  background-size: cover;
+  height: 300px; }
