@@ -388,12 +388,9 @@ a {
   a:hover {
     color: #03a9f4; }
 
-.laptop {
-  max-width: 1040px;
-  margin: 0 auto; }
-  @media (max-width: 1040px) {
-    .laptop {
-      padding: 0px 50px; } }
+.pixeltext {
+  font-family: VT323;
+  font-size: 1.2em; }
 
 .section {
   padding: 40px 0px; }
@@ -552,6 +549,7 @@ header nav {
         header nav ul#nav-mobile li a h5 {
           font-size: 18px; }
 
+<<<<<<< HEAD
 .banner {
   height: 90vh; }
   .banner .row {
@@ -564,3 +562,39 @@ header nav {
   min-height: 70vh; }
   .about .row {
     margin-bottom: 0; }
+=======
+.banner-city {
+  height: 70vh;
+  background-image: url(/assets/img/skuxapartmnet.jpg);
+  background-size: cover;
+  background-position: 50% 20%;
+  -webkit-filter: saturate(0.8);
+          filter: saturate(0.8); }
+
+#herologo {
+  margin: 200px 0px;
+  height: 300px;
+  -webkit-animation: intro;
+          animation: intro;
+    -webkit-animation-timing-function: ease 2s;
+            animation-timing-function: ease 2s; }
+
+@-webkit-keyframes intro {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes intro {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+#cta-btn {
+  font-size: 3em; }
+>>>>>>> 7093aae4673eae27cb38fcbda8f62e7c1da8708f
