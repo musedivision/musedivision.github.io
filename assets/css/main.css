@@ -377,8 +377,7 @@ textarea {
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: Crimson Text, serif;
-  background-color: black; }
+  font-family: Crimson Text, serif; }
 
 ul {
   list-style: none; }
@@ -553,202 +552,15 @@ header nav {
         header nav ul#nav-mobile li a h5 {
           font-size: 18px; }
 
-.banner-wrapper {
-  z-index: 100;
-  height: 70vh;
-  background-color: #fff; }
-  .banner-wrapper .banner-image {
-    -webkit-filter: saturate(1.4);
-            filter: saturate(1.4);
-    background-image: url(/assets/img/11.png);
-    background-size: cover;
-    background-position: 50% 35%;
-    background-repeat: no-repeat;
-    height: 100%; }
+.banner {
+  height: 90vh; }
+  .banner .row {
+    margin-bottom: 0; }
 
-@media (max-width: 435px) {
-  #banLogo {
-    margin-left: -10%; }
-  .banner-wrapper {
-    height: 75vh; } }
+.contact {
+  min-height: 60vh; }
 
-@media (min-width: 760px) and (max-width: 1080px) {
-  .banner-image {
-    background-size: 70%; } }
-
-#banLogo {
-  height: 46.66667vh;
-  margin: 14vh auto;
-  -webkit-animation-name: whatsupdoc;
-          animation-name: whatsupdoc;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
-  -webkit-animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
-          animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s; }
-
-@-webkit-keyframes whatsupdoc {
-  0% {
-    -webkit-filter: blur(7px);
-            filter: blur(7px);
-    height: 35vh; }
-  100% {
-    -webkit-filter: blur(0px);
-            filter: blur(0px);
-    height: 46.66667vh; } }
-
-@keyframes whatsupdoc {
-  0% {
-    -webkit-filter: blur(7px);
-            filter: blur(7px);
-    height: 35vh; }
-  100% {
-    -webkit-filter: blur(0px);
-            filter: blur(0px);
-    height: 46.66667vh; } }
-
-.bookings {
-  background-color: #fff; }
-  .bookings .topnav {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    background-color: black;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: baseline;
-    -webkit-align-items: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
-    height: 150px;
-    overflow: hidden; }
-    .bookings .topnav img {
-      margin-top: -20px;
-      margin-bottom: -100px;
-      max-width: 250px; }
-  .bookings .frame {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column; }
-    .bookings .frame h1 {
-      -webkit-box-flex: 10;
-      -webkit-flex: 10;
-          -ms-flex: 10;
-              flex: 10;
-      text-align: center; }
-    .bookings .frame iframe {
-      -webkit-box-flex: 10;
-      -webkit-flex: 10;
-          -ms-flex: 10;
-              flex: 10; }
-
-body {
-  background-color: #fff; }
-
-.banner-booking {
-  height: 200px;
-  background-image: url(/assets/img/booking-auckland21.jpg);
-  background-size: cover; }
-  .banner-booking .inside-1 {
-    margin-top: 8%; }
-
-.banner-about {
-  height: 200px;
-  background-image: url(/assets/img/about-min.png);
-  background-size: cover; }
-  .banner-about .inside {
-    margin-top: 60px; }
-
-.about-text {
-  font-size: 1.3cd co th; }
-
-#start-word {
-  font-size: 2em; }
-
-.menu {
-  background-color: #fff; }
-  .menu .topnav {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    background-color: black;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: baseline;
-    -webkit-align-items: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
-    height: 150px;
-    overflow: hidden; }
-    .menu .topnav img {
-      margin-top: -20px;
-      margin-bottom: -100px;
-      max-width: 250px; }
-  .menu ul li {
-    margin: 10px !important; }
-    .menu ul li a {
-      font-size: 1.3em;
-      font-weight: bold;
-      display: block; }
-      .menu ul li a:hover {
-        color: #fff;
-        -webkit-transform: scale(1.1);
-            -ms-transform: scale(1.1);
-                transform: scale(1.1);
-        background: teal; }
-
-body {
-  background: #fff; }
-
-.banner-menu {
-  height: 200px;
-  background-image: url(/assets/img/kitchen-min.png);
-  background-size: cover;
-  background-position: 50% 50%; }
-  .banner-menu .inside {
-    margin-top: 60px; }
-
-.indexabout .carousel.carousel-slider {
-  height: 500px !important; }
-  .indexabout .carousel.carousel-slider .carousel-item {
-    display: block; }
-
-@media (max-width: 435px) {
-  .indexabout .carousel.carousel-slider {
-    height: 300px !important; } }
-
-@media (min-width: 1024px) {
-  .indexabout img {
-    position: relative;
-    top: -100px; } }
-
-.menusection #foodpic {
-  background-image: url(/assets/img/platter.jpg);
-  background-size: cover;
-  height: 300px; }
-
-.menusection #bookingpic {
-  background-image: url(/assets/img/glass.jpg);
-  background-size: cover;
-  height: 300px; }
+.about {
+  min-height: 70vh; }
+  .about .row {
+    margin-bottom: 0; }
