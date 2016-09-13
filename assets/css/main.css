@@ -549,7 +549,6 @@ header nav {
         header nav ul#nav-mobile li a h5 {
           font-size: 18px; }
 
-<<<<<<< HEAD
 .banner {
   height: 90vh; }
   .banner .row {
@@ -562,39 +561,33 @@ header nav {
   min-height: 70vh; }
   .about .row {
     margin-bottom: 0; }
-=======
-.banner-city {
-  height: 70vh;
-  background-image: url(/assets/img/skuxapartmnet.jpg);
-  background-size: cover;
-  background-position: 50% 20%;
-  -webkit-filter: saturate(0.8);
-          filter: saturate(0.8); }
 
-#herologo {
-  margin: 200px 0px;
-  height: 300px;
-  -webkit-animation: intro;
-          animation: intro;
-    -webkit-animation-timing-function: ease 2s;
-            animation-timing-function: ease 2s; }
+.calculator {
+  background-image: url(/assets/img/calculator.png);
+  background-size: cover; }
 
-@-webkit-keyframes intro {
-  0% {
-    -webkit-transform: scale(0.1);
-            transform: scale(0.1); }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
+.twitch {
+  background-image: url(/assets/img/twitch.png);
+  background-size: cover; }
 
-@keyframes intro {
-  0% {
-    -webkit-transform: scale(0.1);
-            transform: scale(0.1); }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
+.privateer {
+  background-image: url(/assets/img/privateer.png);
+  background-size: cover; }
+
+.theorginal {
+  background-image: url(/assets/img/theorginal.png);
+  background-size: cover; }
+
+.snap {
+  background-image: url(/assets/img/snap.png);
+  background-size: cover; }
+
+.whiterabbit {
+  background-image: url(/assets/img/whiterabbit.png);
+  background-size: cover; }
+
+.calculator, .twitch, .theorginal, .snap, .whiterabbit, .privateer {
+  min-height: 200px !important; }
 
 #cta-btn {
   font-size: 3em; }
->>>>>>> 7093aae4673eae27cb38fcbda8f62e7c1da8708f

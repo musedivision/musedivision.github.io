@@ -377,8 +377,7 @@ textarea {
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: Crimson Text, serif;
-  background-color: black; }
+  font-family: Crimson Text, serif; }
 
 ul {
   list-style: none; }
@@ -456,9 +455,10 @@ footer {
     width: 60%;
     height: 3px;
     color: #fff;
-    background-color: #fff; }
+    background-color: #fff;
+    display: none; }
   footer h5 {
-    margin-top: 60px; }
+    margin-top: 40px; }
   footer img.sited {
     height: 30px;
     margin-top: 20px;
@@ -491,8 +491,10 @@ footer {
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center; }
-    footer .footer-copyright p.contact {
-      margin: 0 !important; }
+    footer .footer-copyright .contact p {
+      margin: 0 !important;
+      font-size: 1.2em;
+      font-style: italic; }
   footer .cited {
     height: 100px; }
   @media (max-width: 435px) {
@@ -501,6 +503,13 @@ footer {
     footer h5 {
       margin-top: 25px;
       margin-bottom: 20px; } }
+
+.hours p {
+  font-size: 1.2em;
+  margin: 0; }
+
+.hours .italio {
+  font-style: italic; }
 
 header nav {
   z-index: 1;
@@ -540,37 +549,45 @@ header nav {
         header nav ul#nav-mobile li a h5 {
           font-size: 18px; }
 
-.banner-city {
-  height: 70vh;
-  background-image: url(/assets/img/skuxapartmnet.jpg);
-  background-size: cover;
-  background-position: 50% 20%;
-  -webkit-filter: saturate(0.8);
-          filter: saturate(0.8); }
+.banner {
+  height: 90vh; }
+  .banner .row {
+    margin-bottom: 0; }
 
-#herologo {
-  margin: 200px 0px;
-  height: 300px;
-  -webkit-animation: intro;
-          animation: intro;
-    -webkit-animation-timing-function: ease 2s;
-            animation-timing-function: ease 2s; }
+.contact {
+  min-height: 60vh; }
 
-@-webkit-keyframes intro {
-  0% {
-    -webkit-transform: scale(0.1);
-            transform: scale(0.1); }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
+.about {
+  min-height: 70vh; }
+  .about .row {
+    margin-bottom: 0; }
 
-@keyframes intro {
-  0% {
-    -webkit-transform: scale(0.1);
-            transform: scale(0.1); }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
+.calculator {
+  background-image: url(/assets/img/calculator.png);
+  background-size: cover; }
+
+.twitch {
+  background-image: url(/assets/img/twitch.png);
+  background-size: cover; }
+
+.privateer {
+  background-image: url(/assets/img/privateer.png);
+  background-size: cover; }
+
+.theorginal {
+  background-image: url(/assets/img/theorginal.png);
+  background-size: cover; }
+
+.snap {
+  background-image: url(/assets/img/snap.png);
+  background-size: cover; }
+
+.whiterabbit {
+  background-image: url(/assets/img/whiterabbit.png);
+  background-size: cover; }
+
+.calculator, .twitch, .theorginal, .snap, .whiterabbit, .privateer {
+  min-height: 200px !important; }
 
 #cta-btn {
   font-size: 3em; }
