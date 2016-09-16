@@ -377,7 +377,7 @@ textarea {
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: Crimson Text, serif; }
+  font-family: Roboto, serif; }
 
 ul {
   list-style: none; }
@@ -428,14 +428,16 @@ a {
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
-iframe#eveve {
-  max-width: 500px;
-  width: 100%;
-  height: 520px; }
-
-@media screen and (max-width: 480px) {
-  iframe#eveve {
-    height: 540px; } }
+.flex-col {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
 footer {
   margin-top: 0 !important;
@@ -550,17 +552,42 @@ header nav {
           font-size: 18px; }
 
 .banner {
-  height: 90vh; }
+  height: 100vh; }
   .banner .row {
     margin-bottom: 0; }
+  .banner .links {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+    .banner .links a {
+      color: #fff; }
+  .banner .flex-col {
+    height: 100vh;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
 
 .contact {
   min-height: 60vh; }
 
 .about {
   min-height: 70vh; }
-  .about .row {
-    margin-bottom: 0; }
+  .about .flex-col {
+    height: 70vh;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
 
 .calculator {
   background-image: url(/assets/img/calculator.png);
