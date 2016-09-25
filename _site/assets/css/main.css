@@ -377,7 +377,7 @@ textarea {
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: Roboto, serif; }
+  font-family: David Libre, serif; }
 
 ul {
   list-style: none; }
@@ -553,6 +553,12 @@ header nav {
         header nav ul#nav-mobile li a h5 {
           font-size: 18px; }
 
+.landing-bg {
+  background-image: url(/assets/img/waitangi.png);
+  background-size: cover;
+  -webkit-filter: saturate(0%);
+          filter: saturate(0%); }
+
 .banner {
   height: 100vh; }
   .banner .row {
@@ -570,8 +576,6 @@ header nav {
     -webkit-justify-content: space-around;
         -ms-flex-pack: distribute;
             justify-content: space-around; }
-    .banner .links a {
-      color: #fff; }
   .banner .flex-col {
     height: 100vh;
     -webkit-box-pack: center;
@@ -591,32 +595,54 @@ header nav {
         -ms-flex-pack: center;
             justify-content: center; }
 
-.calculator {
-  background-image: url(/assets/img/calculator.png);
-  background-size: cover; }
+.calc {
+  background-image: url(/assets/img/calculator.png); }
 
 .twitch {
-  background-image: url(/assets/img/twitch.png);
-  background-size: cover; }
+  background-image: url(/assets/img/twitch.png); }
+
+.pomodoro {
+  background-image: url(/assets/img/pomodoro.png); }
+
+.weather {
+  background-image: url(/assets/img/weather.png); }
 
 .privateer {
-  background-image: url(/assets/img/privateer.png);
-  background-size: cover; }
+  background-image: url(/assets/img/privateer.png); }
 
-.theorginal {
-  background-image: url(/assets/img/theorginal.png);
-  background-size: cover; }
+.theoriginal {
+  background-image: url(/assets/img/theoriginal.png); }
 
 .snap {
-  background-image: url(/assets/img/snap.png);
-  background-size: cover; }
+  background-image: url(/assets/img/snap.png); }
 
 .whiterabbit {
-  background-image: url(/assets/img/whiterabbit.png);
-  background-size: cover; }
+  background-image: url(/assets/img/whiterabbit.png); }
+
+.solsearch {
+  background-image: url(/assets/img/solsearch.png); }
 
 .calculator, .twitch, .theorginal, .snap, .whiterabbit, .privateer {
   min-height: 200px !important; }
+
+.ex-img {
+  height: 200px;
+  background-size: cover; }
+
+.mrmin {
+  height: 200px; }
+
+.imgcenter {
+  background-position: 50%; }
+
+.progsect {
+  margin-top: 150px; }
+
+.description {
+  margin-top: 50px; }
+
+.norow {
+  padding: 0em; }
 
 #cta-btn {
   font-size: 3em; }
