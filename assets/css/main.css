@@ -388,6 +388,9 @@ a {
   a:hover {
     color: #03a9f4; }
 
+p {
+  font-size: larger; }
+
 .pixeltext {
   font-family: VT323;
   font-size: 1.2em; }
@@ -593,9 +596,9 @@ header nav {
   padding-bottom: 50px; }
 
 .about {
-  min-height: 70vh; }
+  padding-top: 75px;
+  padding-bottom: 75px; }
   .about .flex-col {
-    height: 70vh;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
         -ms-flex-pack: center;
@@ -634,6 +637,9 @@ header nav {
 .solsearch {
   background-image: url(/assets/img/solsearch.png); }
 
+.tictac {
+  background-image: url(/assets/img/tictac300.png); }
+
 .atom {
   background-image: url(/assets/img/atom.png); }
 
@@ -649,7 +655,7 @@ header nav {
 .Rterminal {
   background-image: url(/assets/img/Rterminal.png); }
 
-.calculator, .twitch, .theorginal, .snap, .whiterabbit, .privateer {
+.calculator, .twitch, .tictac, .theorginal, .snap, .whiterabbit, .privateer {
   min-height: 200px !important; }
 
 .ex-img {
@@ -687,6 +693,12 @@ header nav {
             backface-visibility: hidden;
     -webkit-transform: translateZ(0) scale(1.1, 1.1);
             transform: translateZ(0) scale(1.1, 1.1); }
+
+.card-action a {
+  font-size: larger; }
+
+.card.sticky-action .card-reveal {
+  padding-bottom: 10px !important; }
 
 #cta-btn {
   font-size: 3em; }
