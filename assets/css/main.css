@@ -603,6 +603,9 @@ header nav {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center; }
+  .about p {
+    margin-bottom: 0px;
+    margin-top: 0px; }
 
 .calc {
   background-image: url(/assets/img/calculator.png); }
