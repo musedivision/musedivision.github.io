@@ -1,211 +1,58 @@
+//- import mixin
+include projItem.pug
+
 .row
   .col.s12.center
     h1 Portfolio
     p A collection of my projects
 
+    - var original = { name: "The Original", classname: "theoriginal", url: "www.theoriginal.co.nz", summary: ["The Original is a bar in Aucklands Viaduct Harbour. With great photography and graphic design work completed by a graphic designer, I implemented this site on the Squarespace CMS.", "Graphic design by Richard Keddell"], demo: "url", source: "url", chips: ["HTML", "CSS", "Squarespace, CMS"]}
+    - var whiterabbit = { name: "The White Rabbit", classname: "whiterabbit", url: "www.thewhiterabbitonthepark.co.nz", summary: ["The White Rabbit on the Park is a fine dining restaurant in Victoria Park Markets, Auckland. This custom site was built using materializecss and implements a 3rd party table booking system."], chips: ["HTML5", "CSS3"]}
+    - var privateer = { chips: ["Gulp", "Sass", "Jade", "Jekyll"], name: "Privateer", classname: "privateer", summary: ["This is a design concept for a private real estate sales website. The primary goal was educating vistors of company work in an easily consumed mobile responsive format. The design includes a commission saving calculator, users can input their house price and find out how much they could save!"], demo: "http://singlekidd.s3-website-ap-southeast-2.amazonaws.com", source: "https://github.com/musedivision/mothers_day" }
 
-    .col.s12.m4.project-card
-      .card.sticky-action
-        .card-image.waves-effect.waves-light.theoriginal.ex-img.activator
-        .card-content
-          .main-cont
-            span.card-title.activator.grey-text.text-darken-4 The Original
-              i.material-icons.right expand_less
-          .tags
-            .chip Squarespace
-            .chip HTML
-            .chip CSS
-            .chip CMS
-            .chip Commercial
+    - var solsearch = { chips: ["Team", "JavaScript", "Agile", "D3.js"], name: "SolSearch", classname: "solsearch", summary: ["govHack 2016 entry","A Solar panel savings app. Given a users address, we calculate the amount of sunshine energy their property could capture. Using the consumers current electricity bill and appitite for investment, we can estimate the savings and financial viability of solar for each user."], demo: "http://www.solout.tk", source: "https://github.com/omnidatum/omnidatum.github.io" }
+    - var calcjs = { name: "JavaScript Calculator", classname: "calc", source: "https://github.com/musedivision/fcc-projects/tree/master/caculator", demo: "http://codepen.io/muse_division/full/OXaJJq/", chips: ["React", "JavaScript", "Sass"], summary: ["This simple Javascript calculator was made with React. Users are able to make simple calculations. Stringing together multiple operations is governed my BEDMAS principles."]}
 
-        .card-reveal
-          span.card-title.activator.grey-text.text-darken-4 The Original
-            i.material-icons.right expand_more
-          p
-            a(href="http://www.theoriginal.co.nz") www.theoriginal.co.nz
-          p The Original is a bar in Aucklands Viaduct Harbour. With great photography and graphic design work completed by a graphic designer, I implemented this site on the Squarespace CMS.
-          p Graphic design by Richard Keddell
+    - var tictac = {name: "Tic Tac Toe Game", classname: "tictac", source: "https://github.com/musedivision/fcc-projects/tree/master/Tictac", demo: "http://s.codepen.io/muse_division/debug/gwAzPv", chips: ["React", "JavaScript", "Sass"], summary: ["The age old game of noughts and crosses. Made in React. I had alot of fun figuring out the AI for the computer player. There's only a few simple rules which make the computer unbeatable!"]}
+    - var snap = {name: "SNAP", classname: "snap", chips: ["Squarespace", "CMS", "HTML", "CSS"], url: "www.snapsocial.co.nz", summary: ["This bar is the top half of the relaunched Snapdragon in Auckland's Viaduct. Following a simple column, this design shows off the new menu and drinks with great photography.","Graphic design by Richard Keddell"]}
+    - var wiki = {name: "Wikipedia Viewer", source: "https://github.com/musedivision/fcc-projects/tree/master/Wikipedia-viewer", demo: "http://codepen.io/muse_division/full/jrMgzB/", classname: "wiki", chips: ["JavaScript", "Handlebar.js", "API"], summary: ["Using Wikipedia API,  this app lets users search for any subject and have results appear in please card in a card based format."]}
 
-    .col.s12.m4.project-card
-      .card.sticky-action
-        .card-image.waves-effect.waves-light.whiterabbit.ex-img.activator
-        .card-content
-          .main-cont
-            span.card-title.activator.grey-text.text-darken-4 The White Rabbit
-              i.material-icons.right expand_less
-          .tags
-            .chip HTML
-            .chip CSS
-            .chip CMS
-            .chip Commercial
 
-        .card-reveal
-          span.card-title.activator.grey-text.text-darken-4 The White Rabbit
-            i.material-icons.right expand_more
-          p
-            a(href="http://www.thewhiterabbitonthepark.co.nz") www.thewhiterabbitonthepark.co.nz
-          p The White Rabbit on the Park is a fine dining restaurant in Victoria Park Markets, Auckland. This custom site was built using materializecss and implements a 3rd party table booking system.
 
-    .col.s12.m4.project-card
-      .card.sticky-action
-        .card-image.waves-effect.waves-light.privateer.ex-img.activator
-        .card-content
-          .main-cont
-            span.card-title.activator.grey-text.text-darken-4 Privateer
-              i.material-icons.right expand_less
-          .tags
-            .chip Gulp
-            .chip Sass
-            .chip Jade
-            .chip Jekyll
+    .row
+      +project(original)
+      +project(whiterabbit)
+      +project(privateer)
 
-        .card-reveal
-          span.card-title.activator.grey-text.text-darken-4 Privateer
-            i.material-icons.right expand_more
-          p This is a design concept for a private real estate sales website. The primary goal was educating vistors of company work in an easily consumed mobile responsive format. The design includes a commission saving calculator, users can input their house price and find out how much they could save!
-          .card-action
-            a(href="http://singlekidd.s3-website-ap-southeast-2.amazonaws.com").demo DEMO
-            a(href="https://github.com/musedivision/mothers_day").src SOURCE
 
-    .col.s12.m4.project-card
-      .card.sticky-action
-        .card-image.waves-effect.waves-light.solsearch.ex-img.activator
-        .card-content
-          .main-cont
-            span.card-title.activator.grey-text.text-darken-4 SolSearch
-              i.material-icons.right expand_less
-          .tags
-            .chip Team
-            .chip js
-            .chip D3js
-            .chip Agile
+    .row
+      +project(solsearch)
+      .col.s12.m4.project-card
+        .card.sticky-action
+          .card-image.waves-effect.waves-light.pomodoro.ex-img.activator
+          .card-content
+            .main-cont
+              span.card-title.activator.grey-text.text-darken-4 Pomodoro Timer
+                i.material-icons.right expand_less
+            .tags
+              .chip React
+              .chip JavaScript
+              .chip Sass
 
-        .card-reveal
-          span.card-title.activator.grey-text.text-darken-4 Sol Search
-            i.material-icons.right expand_more
-          p govHack 2016 entry
-          p A Solar panel savings app. Given a users address, we calculate the amount of sunshine energy their property could capture. Using the consumers current electricity bill and appitite for investment, we can estimate the savings and financial viability of solar for each user.
-          .card-action
-            a(href="http://www.solout.tk").demo DEMO
-            a(href="https://github.com/omnidatum/omnidatum.github.io").src SOURCE
-
-    .col.s12.m4.project-card
-      .card.sticky-action
-        .card-image.waves-effect.waves-light.pomodoro.ex-img.activator
-        .card-content
-          .main-cont
+          .card-reveal
             span.card-title.activator.grey-text.text-darken-4 Pomodoro Timer
-              i.material-icons.right expand_less
-          .tags
-            .chip React
-            .chip JavaScript
-            .chip Sass
+              i.material-icons.right expand_more
+            p Pomodoro Timer is Productivity App. Users are able to automate their work and break time scheduling to be more productive with the time they have (
+              a(href="https://en.wikipedia.org/wiki/Pomodoro_Technique") Pomodoro Technique).
+              | According the Pomodoro method, you should work take breaks every 25mins (or longer) for 5mins.
+            p My proudest feature is the tomato, which goes around the circle based on how far through the time you are! (hello trigonometry)
+            .card-action
+              a(href="http://s.codepen.io/muse_division/full/GjJJxm").demo DEMO
+              a(href="https://github.com/musedivision/fcc-projects/tree/master/pomodoro").src SOURCE
 
-        .card-reveal
-          span.card-title.activator.grey-text.text-darken-4 Pomodoro Timer
-            i.material-icons.right expand_more
-          p Pomodoro Timer is Productivity App. Users are able to automate their work and break time scheduling to be more productive with the time they have (
-            a(href="https://en.wikipedia.org/wiki/Pomodoro_Technique") Pomodoro Technique).
-            | According the Pomodoro method, you should work take breaks every 25mins (or longer) for 5mins.
-          p The tomato progresses around the circle based how far through a stage a user is.
-          .card-action
-            a(href="http://s.codepen.io/muse_division/full/GjJJxm").demo DEMO
-            a(href="https://github.com/musedivision/fcc-projects/tree/master/pomodoro").src SOURCE
+      +project(calcjs)
 
-    .col.s12.m4.project-card
-      .card.sticky-action
-        .card-image.waves-effect.waves-light.calc.ex-img.activator
-        .card-content
-          .main-cont
-            span.card-title.activator.grey-text.text-darken-4 Javscript Calculator
-              i.material-icons.right expand_less
-          .tags
-            .chip React
-            .chip JavaScript
-            .chip Sass
-
-        .card-reveal
-          span.card-title.activator.grey-text.text-darken-4 Javascript calculator
-            i.material-icons.right expand_more
-          p This simple Javascript calculator was made with React. Users are able to make simple calculations. Stringing together multiple operations is governed my BEDMAS principles.
-          .card-action
-            a(href="http://codepen.io/muse_division/full/OXaJJq/").demo DEMO
-            a(href="https://github.com/musedivision/fcc-projects/tree/master/caculator").src SOURCE
-
-    .col.s12.m3.project-card
-      .card.sticky-action
-        .card-image.waves-effect.waves-light.tictac.ex-img.activator
-        .card-content
-          .main-cont
-            span.card-title.activator.grey-text.text-darken-4 Tic Tic Toe Game
-              i.material-icons.right expand_less
-          .tags
-            .chip React
-            .chip JavaScript
-            .chip Sass
-
-        .card-reveal
-          span.card-title.activator.grey-text.text-darken-4 Tic Tac Toe Game
-            i.material-icons.right expand_more
-          p The age old game of noughts and crosses. Made in React. The Computer always wins.
-          .card-action
-            a(href="http://s.codepen.io/muse_division/debug/gwAzPv").demo DEMO
-            a(href="https://github.com/musedivision/fcc-projects/tree/master/Tictac").src SOURCE
-
-    .col.s12.m3.project-card
-      .card.sticky-action
-        .card-image.waves-effect.waves-light.snap.ex-img.activator
-        .card-content
-          .main-cont
-            span.card-title.activator.grey-text.text-darken-4 SNAP
-              i.material-icons.right expand_less
-          .tags
-            .chip Squarespace
-            .chip HTML
-            .chip CSS
-            .chip CMS
-
-        .card-reveal
-          span.card-title.activator.grey-text.text-darken-4 SNAP
-            i.material-icons.right expand_more
-          p
-            a(href="http://www.snapsocial.co.nz") www.snapsocial.co.nz
-          p This bar is the top half of the relaunched Snapdragon in Auckland's Viaduct. Following a simple column, this design shows off the new menu and drinks with great photography.
-          p Graphic design by Richard Keddell
-
-    .col.s12.m3.project-card
-      .card.sticky-action
-        .card-image.waves-effect.waves-light.wiki.ex-img.activator
-        .card-content
-          .main-cont
-            span.card-title.activator.grey-text.text-darken-4 Wikipedia Viewer
-              i.material-icons.right expand_less
-          .tags
-            .chip JavaScript
-            .chip Handlebar js
-            .chip API
-        .card-reveal
-          span.card-title.activator.grey-text.text-darken-4 Wikipedia Viewer
-            i.material-icons.right expand_more
-          p Using Wikipedia API,  this app lets users search for any subject and have results appear in please card in a card based format.
-          .card-action
-            a(href="http://codepen.io/muse_division/full/jrMgzB/").demo DEMO
-            a(href="https://github.com/musedivision/fcc-projects/tree/master/Wikipedia-viewer").src SOURCE
-
-    .col.s12.m3.project-card
-      .card.sticky-action
-        .card-image.waves-effect.waves-light.quotes.ex-img.activator
-        .card-content
-          .main-cont
-            span.card-title.activator.grey-text.text-darken-4 Quote Generator
-              i.material-icons.right expand_less
-          .tags
-            .chip JavaScript
-            .chip API
-        .card-reveal
-          span.card-title.activator.grey-text.text-darken-4 Random Quote Generator
-            i.material-icons.right expand_more
-          p Using the forismatic Random Quotes API, this JavaScript app gives you random quotes at the click of a button. You can tweet them too.
-          .card-action
-            a(href="http://codepen.io/muse_division/full/bebrxp/").demo DEMO
-            a(href="https://github.com/musedivision/fcc-projects/tree/master/Quotes").src SOURCE
+    .row
+      +project(tictac)
+      +project(snap)
+      +project(wiki)

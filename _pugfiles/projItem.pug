@@ -1,0 +1,29 @@
+//- vars
+//- name , url , classname , summaryArr, demo, source, chipsArr
+
+mixin link(url)
+  a(href="http://" + url) #{url}
+
+mixin project(prj)
+  .col.s12.m4.project-card
+    .card.sticky-action
+      div(class="card-image waves-effect waves-light ex-img activator "+prj.classname)
+      .card-content
+        .main-cont
+          span.card-title.activator.grey-text.text-darken-4 #{prj.name}
+            i.material-icons.right expand_less
+        .tags
+          each tag in prj.chips
+            .chip #{tag}
+      .card-reveal
+        span.card-title.activator.grey-text.text-darken-4 #{prj.name}
+          i.material-icons.right expand_more
+        if  prj.url
+           +link(prj.url)
+        if prj.summary
+          each para in prj.summary
+            p #{para}
+        if prj.demo && prj.source
+          .card-action
+            a(href=prj.demo).demo DEMO
+            a(href=prj.source).src SOURCE

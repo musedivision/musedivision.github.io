@@ -1,0 +1,22 @@
+{
+  "original": {
+    "name": "The Original",
+    "classname": "theoriginal",
+    "url": "www.theoriginal.co.nz",
+    "summary": ["The Original is a bar in Aucklands Viaduct Harbour. With great photography and graphic design work completed by a graphic designer, I implemented this site on the Squarespace CMS.",
+       "Graphic design by Richard Keddell"],
+    "demo": "url",
+    "source": "url",
+    "chips": ["HTML", "CSS", "Squarespace"]
+  },
+  "dog": {
+    "name": "The Original",
+    "classname": "privateer",
+    "url": "www.theoriginal.co.nz",
+    "summary": ["The Original is a bar in Aucklands Viaduct Harbour. With great photography and graphic design work completed by a graphic designer, I implemented this site on the Squarespace CMS.",
+       "Graphic design by Richard Keddell"],
+    "demo": "url",
+    "source": "url",
+    "chips": ["HTML", "CSS", "Squarespace"]
+  }
+}
