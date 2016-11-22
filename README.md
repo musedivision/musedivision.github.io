@@ -1,4 +1,19 @@
-# My Portfolio
+# portfolio of work :apple:
 
-A collection of projects which illustrate my learning over the past 6 months.
+<!--  -->
+my coding history
 
+##tech stack
+* React
+* jekyll
+* sass
+* webpack
+
+###Notes
+
+I'd like to use a build system that has
+* React.js
+* Node.js
+* Express.js
+* MongoDB
+* hosted on AWS

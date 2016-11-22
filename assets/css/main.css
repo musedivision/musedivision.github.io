@@ -643,6 +643,15 @@ header nav {
 .tictac {
   background-image: url(/assets/img/tictac300.png); }
 
+.timestamp {
+  background-image: url(/assets/img/timestamp.png); }
+
+.shortener {
+  background-image: url(/assets/img/shortener.png); }
+
+.whoami {
+  background-image: url(/assets/img/whoami.png); }
+
 .atom {
   background-image: url(/assets/img/atom.png); }
 

@@ -17,6 +17,10 @@ include projItem.pug
     - var snap = {name: "SNAP", classname: "snap", chips: ["Squarespace", "CMS", "HTML", "CSS"], url: "www.snapsocial.co.nz", summary: ["This bar is the top half of the relaunched Snapdragon in Auckland's Viaduct. Following a simple column, this design shows off the new menu and drinks with great photography.","Graphic design by Richard Keddell"]}
     - var wiki = {name: "Wikipedia Viewer", source: "https://github.com/musedivision/fcc-projects/tree/master/Wikipedia-viewer", demo: "http://codepen.io/muse_division/full/jrMgzB/", classname: "wiki", chips: ["JavaScript", "Handlebar.js", "API"], summary: ["Using Wikipedia API,  this app lets users search for any subject and have results appear in please card in a card based format."]}
 
+    - var timestamp = { name: "Timestamp Microservice", classname: "timestamp", source: "https://github.com/musedivision/timestamp", demo: "http://time-sushi-service.herokuapp.com", chips: ["Node", "Express"], summary: ["A simple time conversion api. A string can be passed as a parameter, which will be checked as Natural language or Unix time. If a valid time is passed, unix and natural language time strings are returned, else null is returned."]}
+    - var shortener = { name: "Url Shortener Microservice", classname: "shortener", source: "https://github.com/musedivision/url-short", demo: "http://so-short-so-url.herokuapp.com", chips: ["Node", "Express", "mongoDB"], summary: ["A microservice api to create shortened urls for users. A user submits a url to shorten to the /new/ endpoint, and a shortened URL is returned. Going to this url will redirect to originally passed website."]}
+    - var whoami = { name: "Request Header Parser", classname: "whoami", source: "https://github.com/musedivision/header-parser", demo: "http://sushi-parser.herokuapp.com/whoami", chips: ["Node", "Express"], summary: ["This microservice parses the request header and returns the IP address, language and operating system of the requesting device."]}
+
 
 
     .row
@@ -51,6 +55,11 @@ include projItem.pug
               a(href="https://github.com/musedivision/fcc-projects/tree/master/pomodoro").src SOURCE
 
       +project(calcjs)
+
+    .row
+      +project(timestamp)
+      +project(shortener)
+      +project(whoami)
 
     .row
       +project(tictac)
