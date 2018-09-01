@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "gulp": "^3.9.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "bootstrap-sass": "^3.3.6",
-    "browser-sync": "^2.12.5",
+    "browser-sync": "^2.24.7",
     "es6-promise": "^3.1.2",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-pug": "^2.0.0",
     "gulp-sass": "^2.3.2"
