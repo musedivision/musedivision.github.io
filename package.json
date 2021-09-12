@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "vuepress dev src",
+    "deploy": "vuepress run build src"
+  },
+  "devDependencies": {
+    "@vuepress/theme-blog": "^2.3.3"
+  }
+}
