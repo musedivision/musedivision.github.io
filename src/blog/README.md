@@ -1,2 +1,2 @@
 # My Posts
-[Article 1](../Article.md)
+[Article 1](/Article.md)
