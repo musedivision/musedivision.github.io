@@ -73,7 +73,7 @@ void main() {
   vec2 p = uv * 3.0;
   
   // Animate the noise
-  float t = u_time * 0.3;
+  float t = u_time * 0.05;
   
   // Create flowing noise pattern
   float n1 = fbm(p + vec2(t, 0.0));
