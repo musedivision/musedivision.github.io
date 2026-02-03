@@ -2,6 +2,7 @@ precision highp float;
 
 uniform float u_time;
 uniform vec2 u_resolution;
+uniform vec3 u_gyro; // alpha (compass), beta (front/back), gamma (left/right)
 
 // Simplex noise functions
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -50,6 +51,23 @@ float fbm(vec2 p) {
   return value;
 }
 
+// RGB to HSV
+vec3 rgb2hsv(vec3 c) {
+  vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+  vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+  vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+  float d = q.x - min(q.w, q.y);
+  float e = 1.0e-10;
+  return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+// HSV to RGB
+vec3 hsv2rgb(vec3 c) {
+  vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+  vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+  return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+
 void main() {
   vec2 uv = gl_FragCoord.xy / u_resolution.xy;
   vec2 p = uv * 3.0;
@@ -77,6 +95,13 @@ void main() {
   // Add subtle glow
   float glow = pow(blend, 3.0) * 0.3;
   color += vec3(0.3, 0.1, 0.5) * glow;
+  
+  // Apply gyro-based hue shift
+  // Use alpha (compass direction 0-360) to rotate hue
+  float hueShift = u_gyro.x / 360.0;
+  vec3 hsv = rgb2hsv(color);
+  hsv.x = fract(hsv.x + hueShift);
+  color = hsv2rgb(hsv);
   
   // Vignette
   float vignette = 1.0 - length(uv - 0.5) * 0.8;

@@ -12,6 +12,9 @@ export class WebGLRenderer {
     this.uniforms = {};
     this.startTime = performance.now();
     this.animationId = null;
+    
+    // Gyroscope data (alpha = compass, beta = front/back tilt, gamma = left/right tilt)
+    this.gyro = { alpha: 0, beta: 0, gamma: 0 };
   }
 
   compileShader(source, type) {
@@ -93,6 +96,12 @@ export class WebGLRenderer {
     }
   }
 
+  setGyro(alpha, beta, gamma) {
+    this.gyro.alpha = alpha || 0;
+    this.gyro.beta = beta || 0;
+    this.gyro.gamma = gamma || 0;
+  }
+
   render() {
     const gl = this.gl;
     
@@ -108,6 +117,11 @@ export class WebGLRenderer {
     const resolutionLoc = this.getUniformLocation('u_resolution');
     if (resolutionLoc) {
       gl.uniform2f(resolutionLoc, this.canvas.width, this.canvas.height);
+    }
+
+    const gyroLoc = this.getUniformLocation('u_gyro');
+    if (gyroLoc) {
+      gl.uniform3f(gyroLoc, this.gyro.alpha, this.gyro.beta, this.gyro.gamma);
     }
 
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
