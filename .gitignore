@@ -4,6 +4,15 @@ node_modules/
 # Build output
 dist/
 
+# Generated from markdown posts
+src/posts/*/index.html
+src/data/
+
+# Source images stay local — only the compressed .webp is committed and shipped
+src/posts/*/*.png
+src/posts/*/*.jpg
+src/posts/*/*.jpeg
+
 # IDE
 .vscode/
 .idea/

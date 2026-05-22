@@ -1,0 +1,148 @@
+/* Blog post pages — lofi: black background, images and text only. No shader. */
+@font-face {
+  font-family: 'Share Tech Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/share-tech-mono.woff2') format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: #000;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.post {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+  font-family: 'Share Tech Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+  line-height: 1.7;
+  font-size: 1rem;
+  animation: post-in 0.3s ease-out;
+}
+
+@keyframes post-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.post .back {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  margin-bottom: 3rem;
+  transition: color 0.2s ease;
+}
+.post .back:hover { color: rgba(255, 255, 255, 0.95); }
+
+.post-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-header time {
+  display: block;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.post-header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.post .cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.post-body h1,
+.post-body h2,
+.post-body h3 {
+  margin: 2.5rem 0 1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.95);
+}
+.post-body h2 { font-size: 1.4rem; }
+.post-body h3 { font-size: 1.15rem; }
+
+.post-body p { margin: 1.2rem 0; }
+
+.post-body a {
+  color: rgba(180, 160, 255, 0.95);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(180, 160, 255, 0.3);
+  transition: border-color 0.2s ease;
+}
+.post-body a:hover { border-bottom-color: rgba(180, 160, 255, 0.9); }
+
+.post-body strong { color: rgba(255, 255, 255, 1); font-weight: 400; }
+.post-body em { color: rgba(255, 255, 255, 0.85); }
+
+.post-body code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.1em 0.4em;
+  border-radius: 2px;
+  font-size: 0.92em;
+}
+
+.post-body pre {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.post-body pre code {
+  background: none;
+  padding: 0;
+}
+
+.post-body blockquote {
+  margin: 1.5rem 0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  border-left: 2px solid rgba(180, 160, 255, 0.4);
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+.post-body ul,
+.post-body ol {
+  margin: 1.2rem 0;
+  padding-left: 1.5rem;
+}
+.post-body li { margin: 0.4rem 0; }
+
+.post-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 2rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.post-body hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2.5rem 0;
+}

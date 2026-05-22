@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Share Tech Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/share-tech-mono.woff2') format('woff2');
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +14,13 @@
 
 html, body {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
   background: #0a0a0f;
+  color: white;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 #webgl-canvas {
@@ -20,18 +32,175 @@ html, body {
   z-index: 0;
 }
 
-.title {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.home {
+  position: relative;
   z-index: 1;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: clamp(2rem, 8vw, 6rem);
-  font-weight: 300;
-  letter-spacing: 0.2em;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 10vh, 7rem) 1.5rem 6rem;
+  font-family: 'Share Tech Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+
+.masthead {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  display: inline-block;
+  font-family: 'Share Tech Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+  font-size: clamp(2rem, 7vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
   color: white;
   text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
-  pointer-events: none;
   user-select: none;
+}
+
+.title::after {
+  content: '_';
+  display: inline-block;
+  margin-left: 0.1em;
+  animation: blink 1.6s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+.showcase {
+  display: block;
+  position: relative;
+  margin: 0 auto 4rem;
+  max-width: 38rem;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards;
+}
+
+.showcase[hidden] { display: none; }
+
+.showcase img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s ease, transform 0.4s ease;
+}
+
+.showcase:hover img {
+  border-color: rgba(200, 170, 255, 0.5);
+}
+
+.showcase-caption {
+  display: block;
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+}
+
+.showcase:hover .showcase-caption {
+  color: rgba(200, 170, 255, 0.9);
+}
+
+@keyframes fade-in {
+  to { opacity: 1; }
+}
+
+.tracker {
+  margin-bottom: 4rem;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.stat .num {
+  color: white;
+  font-size: 1.6em;
+  margin-right: 0.5em;
+  text-shadow: 0 0 20px rgba(200, 150, 255, 0.4);
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.stat .num.met {
+  color: rgb(220, 190, 255);
+  text-shadow: 0 0 24px rgba(220, 180, 255, 0.85);
+}
+
+.stat .label {
+  text-transform: lowercase;
+}
+
+.heatmap-wrap {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.heatmap {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.posts {
+  margin-top: 1rem;
+}
+
+.posts a {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.posts .thumb {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+.posts .thumb-empty { display: block; }
+
+.posts a:hover {
+  color: rgba(200, 170, 255, 1);
+  padding-left: 0.5rem;
+}
+
+.posts time {
+  color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+  min-width: 6.5rem;
+}
+
+.posts .post-title {
+  flex: 1;
+}
+
+.posts .empty {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 2rem 0;
+  font-style: italic;
 }

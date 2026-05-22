@@ -1,3 +1,7 @@
+function clamp01(v) {
+  return Math.max(0, Math.min(1, v));
+}
+
 export class WebGLRenderer {
   constructor(canvas) {
     this.canvas = canvas;
@@ -12,9 +16,18 @@ export class WebGLRenderer {
     this.uniforms = {};
     this.startTime = performance.now();
     this.animationId = null;
-    
-    // Gyroscope data (alpha = compass, beta = front/back tilt, gamma = left/right tilt)
-    this.gyro = { alpha: 0, beta: 0, gamma: 0 };
+
+    // Palette colors driven by the showcased image; current lerps toward target each frame.
+    // Default is neutral dark — when an image palette arrives it lights up into those colors.
+    const DEFAULT_PALETTE = [
+      [0.02, 0.02, 0.03],
+      [0.05, 0.05, 0.06],
+      [0.09, 0.09, 0.10],
+      [0.14, 0.14, 0.16],
+    ];
+    this.currentPalette = DEFAULT_PALETTE.map(c => [...c]);
+    this.targetPalette = DEFAULT_PALETTE.map(c => [...c]);
+    this.paletteBuffer = new Float32Array(12);
   }
 
   compileShader(source, type) {
@@ -77,7 +90,7 @@ export class WebGLRenderer {
   }
 
   getUniformLocation(name) {
-    if (!this.uniforms[name]) {
+    if (!(name in this.uniforms)) {
       this.uniforms[name] = this.gl.getUniformLocation(this.program, name);
     }
     return this.uniforms[name];
@@ -96,10 +109,15 @@ export class WebGLRenderer {
     }
   }
 
-  setGyro(alpha, beta, gamma) {
-    this.gyro.alpha = alpha || 0;
-    this.gyro.beta = beta || 0;
-    this.gyro.gamma = gamma || 0;
+  setPalette(palette) {
+    if (!Array.isArray(palette) || palette.length < 4) return;
+    for (let i = 0; i < 4; i++) {
+      this.targetPalette[i] = [
+        clamp01(palette[i][0]),
+        clamp01(palette[i][1]),
+        clamp01(palette[i][2]),
+      ];
+    }
   }
 
   render() {
@@ -119,15 +137,24 @@ export class WebGLRenderer {
       gl.uniform2f(resolutionLoc, this.canvas.width, this.canvas.height);
     }
 
-    const gyroLoc = this.getUniformLocation('u_gyro');
-    if (gyroLoc) {
-      gl.uniform3f(gyroLoc, this.gyro.alpha, this.gyro.beta, this.gyro.gamma);
+    // Lerp current palette toward target (~1.5s asymptotic convergence at 60fps)
+    const k = 0.03;
+    for (let i = 0; i < 4; i++) {
+      for (let c = 0; c < 3; c++) {
+        this.currentPalette[i][c] += (this.targetPalette[i][c] - this.currentPalette[i][c]) * k;
+        this.paletteBuffer[i * 3 + c] = this.currentPalette[i][c];
+      }
+    }
+    const paletteLoc = this.getUniformLocation('u_palette[0]');
+    if (paletteLoc) {
+      gl.uniform3fv(paletteLoc, this.paletteBuffer);
     }
 
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   }
 
   start() {
+    if (this.animationId !== null) return; // already running — don't stack loops
     const loop = () => {
       this.render();
       this.animationId = requestAnimationFrame(loop);
