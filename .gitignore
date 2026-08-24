@@ -12,6 +12,7 @@ src/data/
 src/posts/*/*.png
 src/posts/*/*.jpg
 src/posts/*/*.jpeg
+src/posts/*/*.gif
 
 # IDE
 .vscode/

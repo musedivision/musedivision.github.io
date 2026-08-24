@@ -10,7 +10,7 @@ const ROOT = join(__dirname, '..');
 const POSTS_DIR = join(ROOT, 'src', 'posts');
 const DATA_DIR = join(ROOT, 'src', 'data');
 
-const IMAGE_EXT_RE = /\.(jpe?g|png)$/i;
+const IMAGE_EXT_RE = /\.(jpe?g|png|gif)$/i;
 const MAX_WIDTH = 1600;        // width of the shipped .webp
 const WEBP_QUALITY = 80;
 const THUMB_WIDTH = 240;       // width of the home-page list thumbnail
@@ -66,7 +66,8 @@ async function compressImagesIn(dir) {
     const src = join(dir, f);
     const dest = join(dir, f.replace(IMAGE_EXT_RE, '.webp'));
     if (existsSync(dest) && statSync(dest).mtimeMs >= statSync(src).mtimeMs) continue;
-    await sharp(src)
+    // animated: true keeps every frame of a .gif so it becomes an animated .webp
+    await sharp(src, { animated: /\.gif$/i.test(f) })
       .rotate()
       .resize({ width: MAX_WIDTH, withoutEnlargement: true })
       .webp({ quality: WEBP_QUALITY })

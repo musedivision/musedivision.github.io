@@ -146,3 +146,12 @@ html, body {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin: 2.5rem 0;
 }
+
+.post-body .caption {
+  margin: -1.2rem 0 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.5);
+}
+.post-body .caption a { color: rgba(255, 255, 255, 0.7); }

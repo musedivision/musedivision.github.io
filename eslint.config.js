@@ -9,7 +9,8 @@ const rules = {
 };
 
 export default [
-  { ignores: ['dist/**'] },
+  // src/posts/*/neural-earth.js is a built artifact from ../dev/geo/web-demo (npm run build:lib)
+  { ignores: ['dist/**', 'src/posts/*/neural-earth.js'] },
   js.configs.recommended,
   {
     // Browser code — the site itself.

@@ -37,7 +37,8 @@ function esc(s) {
 }
 
 const WEEKLY_GOAL = 3;
-const GOAL_END = '2026-12-31'; // goal: 3 posts/week until the end of 2026
+const GOAL_START = '2026-08-24'; // the campaign starts here; older posts stack up as a backlog
+const GOAL_END = '2026-12-31';   // goal: 3 posts/week until the end of 2026
 const TZ = 'Europe/Amsterdam';
 
 // All week math runs on UTC-midnight "civil date" anchors so it is timezone-stable
@@ -117,25 +118,47 @@ function renderHeatmap() {
   const today = civilToday();
   const thisWeek = startOfWeek(today);
 
-  // Bounded campaign: from the first post's week through the last week of 2026.
+  // Bounded campaign: from GOAL_START's week through the last week of 2026.
+  // Posts older than that don't get their own weeks — they pile up as a
+  // backlog of small blips to the left of a divider, one per post.
   const endWeek = startOfWeek(civilFromIso(GOAL_END));
-  const firstPost = posts.length ? civilFromIso(posts[posts.length - 1].date) : today;
-  const startWeek = startOfWeek(firstPost);
+  const startWeek = startOfWeek(civilFromIso(GOAL_START));
   const WEEKS = Math.max(1, Math.round((endWeek - startWeek) / (7 * 86400000)) + 1);
 
-  const width = WEEKS * (cellSize + gap) - gap + pad * 2;
+  const backlog = posts.filter(p => civilFromIso(p.date) < startWeek).reverse(); // oldest first
+  const blipSize = 8;
+  const blipGap = 3;
+  const backlogWidth = backlog.length
+    ? backlog.length * (blipSize + blipGap) - blipGap + gap * 2 + 1 + gap // blips, divider line, gap
+    : 0;
+
+  const width = backlogWidth + WEEKS * (cellSize + gap) - gap + pad * 2;
   const height = cellSize + pad * 2;
   svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
   svg.setAttribute('width', width);
   svg.setAttribute('height', height);
 
   const parts = [];
+  backlog.forEach((p, i) => {
+    const x = pad + i * (blipSize + blipGap);
+    const y = pad + (cellSize - blipSize) / 2;
+    parts.push(
+      `<rect x="${x}" y="${y}" width="${blipSize}" height="${blipSize}" rx="2" fill="rgba(110,225,140,0.45)"><title>${esc(p.date)} — ${esc(p.title)}</title></rect>`
+    );
+  });
+  if (backlog.length) {
+    const lx = pad + backlog.length * (blipSize + blipGap) - blipGap + gap * 2;
+    parts.push(
+      `<line x1="${lx}" y1="${pad}" x2="${lx}" y2="${pad + cellSize}" stroke="rgba(255,255,255,0.25)" stroke-width="1"><title>goal starts ${GOAL_START}</title></line>`
+    );
+  }
+
   for (let w = 0; w < WEEKS; w++) {
     // Chronological: w = 0 is the goal's first week (leftmost), end of 2026 at the right.
     const weekStart = addDays(startWeek, w * 7);
     const count = countPostsInWeek(weekStart, today);
     const isCurrent = weekStart.getTime() === thisWeek.getTime();
-    const x = pad + w * (cellSize + gap);
+    const x = pad + backlogWidth + w * (cellSize + gap);
     const outline = isCurrent ? ' stroke="rgba(255,255,255,0.7)" stroke-width="1.5"' : '';
     const label = `week of ${isoDay(weekStart)} — ${count}/${WEEKLY_GOAL}${count >= WEEKLY_GOAL ? ' ✓' : ''}`;
     parts.push(
