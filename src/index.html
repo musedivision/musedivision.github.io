@@ -5,27 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>musedivision</title>
   <link rel="preload" href="/fonts/share-tech-mono.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <canvas id="webgl-canvas"></canvas>
   <main class="home">
     <header class="masthead">
       <h1 class="title">musedivision</h1>
+      <nav class="nav"><a href="/" aria-current="page">main</a><a href="/blog/">blog</a></nav>
     </header>
     <a class="showcase" id="showcase" hidden></a>
-    <section class="tracker">
-      <div class="stats">
-        <div class="stat"><span class="num" id="week-count">0</span><span class="label">/ 3 this week</span></div>
-        <div class="stat"><span class="num" id="streak">0</span><span class="label">day streak</span></div>
-      </div>
-      <div class="heatmap-wrap">
-        <svg id="heatmap" class="heatmap" xmlns="http://www.w3.org/2000/svg"></svg>
-      </div>
-    </section>
     <section class="posts" id="posts"></section>
   </main>
-  <script type="module" src="./js/main.js"></script>
-  <script type="module" src="./js/home.js"></script>
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/landing.js"></script>
 </body>
 </html>

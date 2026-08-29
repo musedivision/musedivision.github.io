@@ -4,8 +4,10 @@ node_modules/
 # Build output
 dist/
 
-# Generated from markdown posts
+# Generated from markdown (posts + demo pages); src/blog/index.html is hand-written
 src/posts/*/index.html
+src/*/index.html
+!src/blog/index.html
 src/data/
 
 # Source images stay local — only the compressed .webp is committed and shipped
@@ -13,6 +15,10 @@ src/posts/*/*.png
 src/posts/*/*.jpg
 src/posts/*/*.jpeg
 src/posts/*/*.gif
+src/*/*.png
+src/*/*.jpg
+src/*/*.jpeg
+src/*/*.gif
 
 # IDE
 .vscode/

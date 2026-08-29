@@ -12,11 +12,6 @@ excerpt: "The whole planet as one hash-grid MLP, evaluated per pixel in a WGSL c
   /* break out of the 42rem column */
   .earth-wrap { width: min(100vw - 3rem, 64rem); margin: 2rem 0 2rem 50%; transform: translateX(-50%); }
   #earth { position: relative; width: 100%; aspect-ratio: 16 / 10; background: #05070d; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
-  #earth .earth-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; margin: 0; border: 0; opacity: .55; }
-  .earth-gate { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .8rem; text-align: center; padding: 1.5rem; }
-  .earth-start { font: inherit; font-size: 1rem; letter-spacing: .08em; text-transform: lowercase; color: #fff; background: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.6); padding: .7rem 1.4rem; cursor: pointer; }
-  .earth-start:hover { background: rgba(255,255,255,.12); }
-  .earth-note { font-size: .8rem; color: rgba(255,255,255,.6); max-width: 28rem; }
   @media (max-width: 720px) { #earth { aspect-ratio: 4 / 5; } }
 </style>
 

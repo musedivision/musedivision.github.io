@@ -1,40 +1,5 @@
-import posts from '../data/posts.json';
-import heatmap from '../data/heatmap.json';
-import { extractPalette, dispatchPalette } from './palette.js';
-
-const coverModules = import.meta.glob('../posts/*/*.webp', { eager: true, query: '?url', import: 'default' });
-const coverUrlBySlug = {};
-for (const path in coverModules) {
-  const m = path.match(/\/posts\/([^/]+)\/([^/]+\.webp)$/);
-  if (m) {
-    coverUrlBySlug[m[1]] ??= {};
-    coverUrlBySlug[m[1]][m[2]] = coverModules[path];
-  }
-}
-function coverUrlFor(post) {
-  if (!post.cover) return null;
-  return coverUrlBySlug[post.slug]?.[post.cover] ?? null;
-}
-function thumbUrlFor(post) {
-  if (!post.thumb) return null;
-  return coverUrlBySlug[post.slug]?.[post.thumb] ?? null;
-}
-
-function prefetch(href) {
-  if (!href) return;
-  const existing = [...document.querySelectorAll('link[rel="prefetch"]')];
-  if (existing.some(l => l.href === href || l.getAttribute('href') === href)) return;
-  const link = document.createElement('link');
-  link.rel = 'prefetch';
-  link.href = href;
-  document.head.appendChild(link);
-}
-
-function esc(s) {
-  return String(s).replace(/[&<>"]/g, c => (
-    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]
-  ));
-}
+// Posting-habit tracker: weekly stats + heatmap strip. Blog page only.
+import { esc } from './posts-ui.js';
 
 const WEEKLY_GOAL = 3;
 const GOAL_START = '2026-08-24'; // the campaign starts here; older posts stack up as a backlog
@@ -65,7 +30,12 @@ function startOfWeek(d) {
   return addDays(d, -((d.getUTCDay() + 6) % 7));
 }
 
-function countPostsInWeek(weekStart, today) {
+function civilFromIso(s) {
+  const [y, m, d] = s.split('-').map(Number);
+  return new Date(Date.UTC(y, m - 1, d));
+}
+
+function countPostsInWeek(heatmap, weekStart, today) {
   let count = 0;
   for (let d = 0; d < 7; d++) {
     const date = addDays(weekStart, d);
@@ -75,16 +45,16 @@ function countPostsInWeek(weekStart, today) {
   return count;
 }
 
-function renderStats() {
+function renderStats(heatmap) {
   const today = civilToday();
   const thisWeekStart = startOfWeek(today);
-  const weekCount = countPostsInWeek(thisWeekStart, today);
+  const weekCount = countPostsInWeek(heatmap, thisWeekStart, today);
 
   let streak = 0;
   let cursorWeek = new Date(thisWeekStart);
   const currentWeekMet = weekCount >= WEEKLY_GOAL;
   if (!currentWeekMet) cursorWeek = addDays(cursorWeek, -7);
-  while (countPostsInWeek(cursorWeek, today) >= WEEKLY_GOAL) {
+  while (countPostsInWeek(heatmap, cursorWeek, today) >= WEEKLY_GOAL) {
     streak++;
     cursorWeek = addDays(cursorWeek, -7);
   }
@@ -103,12 +73,7 @@ function colorForWeek(count) {
   return 'rgba(70,140,90,0.5)';
 }
 
-function civilFromIso(s) {
-  const [y, m, d] = s.split('-').map(Number);
-  return new Date(Date.UTC(y, m - 1, d));
-}
-
-function renderHeatmap() {
+function renderHeatmap(posts, heatmap) {
   const svg = document.getElementById('heatmap');
   if (!svg) return;
 
@@ -156,7 +121,7 @@ function renderHeatmap() {
   for (let w = 0; w < WEEKS; w++) {
     // Chronological: w = 0 is the goal's first week (leftmost), end of 2026 at the right.
     const weekStart = addDays(startWeek, w * 7);
-    const count = countPostsInWeek(weekStart, today);
+    const count = countPostsInWeek(heatmap, weekStart, today);
     const isCurrent = weekStart.getTime() === thisWeek.getTime();
     const x = pad + backlogWidth + w * (cellSize + gap);
     const outline = isCurrent ? ' stroke="rgba(255,255,255,0.7)" stroke-width="1.5"' : '';
@@ -168,50 +133,7 @@ function renderHeatmap() {
   svg.innerHTML = parts.join('');
 }
 
-function renderPosts() {
-  const container = document.getElementById('posts');
-  if (!container) return;
-
-  if (posts.length === 0) {
-    container.innerHTML = '<div class="empty">no posts yet — run `npm run new "title"`</div>';
-    return;
-  }
-
-  container.innerHTML = posts
-    .map(p => {
-      const t = thumbUrlFor(p);
-      const thumb = t
-        ? `<img class="thumb" src="${t}" width="48" height="48" loading="lazy" decoding="async" alt="">`
-        : '<span class="thumb thumb-empty"></span>';
-      return `<a href="${esc(p.url)}">${thumb}<time>${esc(p.date)}</time><span class="post-title">${esc(p.title)}</span></a>`;
-    })
-    .join('');
-
-  // Warm the cache for a post (HTML + cover) the first time its link is hovered.
-  container.querySelectorAll('a').forEach((a, i) => {
-    a.addEventListener('mouseenter', () => {
-      prefetch(a.href);
-      prefetch(coverUrlFor(posts[i]));
-    }, { once: true });
-  });
+export function renderTracker(posts, heatmap) {
+  renderStats(heatmap);
+  renderHeatmap(posts, heatmap);
 }
-
-function renderShowcase() {
-  const el = document.getElementById('showcase');
-  if (!el) return;
-  const withCovers = posts
-    .map(p => ({ post: p, url: coverUrlFor(p) }))
-    .filter(x => x.url);
-  if (withCovers.length === 0) return;
-  const pick = withCovers[Math.floor(Math.random() * withCovers.length)];
-  el.href = pick.post.url;
-  el.innerHTML = `<img src="${pick.url}" alt=""><span class="showcase-caption">${esc(pick.post.title)}</span>`;
-  el.hidden = false;
-
-  extractPalette(pick.url).then(dispatchPalette).catch(() => {});
-}
-
-renderStats();
-renderHeatmap();
-renderShowcase();
-renderPosts();

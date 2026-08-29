@@ -5,7 +5,8 @@ import { resolve, join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const POSTS_DIR = resolve(__dirname, 'src/posts')
+const SRC_DIR = resolve(__dirname, 'src')
+const POSTS_DIR = resolve(SRC_DIR, 'posts')
 
 function postInputs() {
   if (!existsSync(POSTS_DIR)) return {}
@@ -14,6 +15,19 @@ function postInputs() {
     const html = join(POSTS_DIR, slug, 'index.html')
     if (existsSync(html) && statSync(html).isFile()) {
       entries[`posts/${slug}`] = html
+    }
+  }
+  return entries
+}
+
+// src/blog/index.html plus every generated demo page (src/<slug>/index.html).
+function pageInputs() {
+  const entries = {}
+  for (const name of readdirSync(SRC_DIR)) {
+    if (name === 'posts') continue
+    const html = join(SRC_DIR, name, 'index.html')
+    if (existsSync(html) && statSync(html).isFile()) {
+      entries[name] = html
     }
   }
   return entries
@@ -29,6 +43,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
+        ...pageInputs(),
         ...postInputs(),
       },
     },

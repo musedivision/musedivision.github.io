@@ -1,0 +1,64 @@
+/* Demo pages — the page IS the demo: a full-viewport stage and a whisper of nav. */
+@font-face {
+  font-family: 'Share Tech Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/share-tech-mono.woff2') format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: 'Share Tech Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+
+.demo-stage {
+  position: fixed;
+  inset: 0;
+}
+
+/* Top-right corner: the viewer keeps its HUD top-left and toolbar bottom-centre. */
+.demo-nav {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  text-align: right;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+  animation: demo-in 0.6s ease-out;
+}
+
+@keyframes demo-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.demo-nav a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.demo-nav a:hover { color: rgba(200, 170, 255, 1); }
+
+.demo-title {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+}

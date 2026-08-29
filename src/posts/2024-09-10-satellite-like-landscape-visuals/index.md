@@ -4,6 +4,7 @@ date: 2024-09-10
 cover: ml-art-1.png
 tags: [ml, art, terrain]
 excerpt: "What are you actually seeing when a half-trained diffusion model makes something that looks like art? Some thoughts on glitches, CLIP, and Schrödinger's cat."
+featured: true
 ---
 
 <p class="caption">Originally published on the <a href="https://playerunknownproductions.net/news/satellite-like-landscape-visuals-art-and-machine-learning">PLAYERUNKNOWN Productions blog</a>, 10 September 2024.</p>

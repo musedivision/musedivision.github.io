@@ -4,6 +4,7 @@ date: 2025-10-01
 cover: cover.jpg
 tags: [ml, terrain, procedural, preface]
 excerpt: "How we cook low-resolution planet basemaps offline — spherical noise, a simple climate recipe, cellular-automata vegetation, and a satellite-texture diffusion model — for Preface 0.3."
+featured: true
 ---
 
 <p class="caption">Originally published on the <a href="https://playerunknownproductions.net/news/cosmic-kitchen-cooking-planets-for-melba">PLAYERUNKNOWN Productions blog</a>, 1 October 2025. Including work by Noel Lopez Gonzaga and Saul Chung.</p>
