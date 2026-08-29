@@ -49,7 +49,7 @@ if (root) {
   const gate = document.createElement('div');
   gate.className = 'earth-gate';
   gate.innerHTML = `<button type="button" class="earth-start">enter</button>
-     <span class="earth-note">downloads ${SIZE} of weights &middot; cached after the first time</span>`;
+     <span class="earth-note">downloads ${SIZE} of weights</span>`;
   root.appendChild(gate);
 
   const button = gate.querySelector('.earth-start');
