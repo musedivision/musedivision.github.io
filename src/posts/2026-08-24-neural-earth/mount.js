@@ -1,10 +1,10 @@
-// Gate the Neural Earth viewer behind a click (358 MB of weights), then mount it
+// Gate the Neural Earth viewer behind a click (441 MB of weights), then mount it
 // into #earth. Shared by the blog post (inline, in a column) and the /neural-earth/
 // demo page (full viewport) — the host page only has to size #earth.
 import { mountNeuralEarth } from './neural-earth.js';
 
 const WEIGHTS = 'https://huggingface.co/musedivision/neural-earth/resolve/main';
-const SIZE = '358 MB';
+const SIZE = '441 MB'; // coarse leg first (207 MB), fine leg streams in behind it
 
 const GATE_CSS = `
 #earth .earth-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; margin: 0; border: 0; opacity: .55; transition: opacity .6s ease; }
@@ -68,8 +68,9 @@ if (root) {
     root.querySelector('.earth-poster')?.remove();
     root.classList.remove('leaving');
     gate.remove();
+    // neural-earth.js is the int4 lib build: both legs + int4 grids are its defaults.
     mountNeuralEarth(root, {
-      weights, legs: 'coarse', quant: 'int8',
+      weights,
       brand: false, help: true,
       onError: (e) => console.error('[earth]', e),
     });

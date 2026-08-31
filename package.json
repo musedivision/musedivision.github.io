@@ -10,7 +10,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "new": "node scripts/new-post.js"
+    "new": "node scripts/new-post.js",
+    "sync:earth": "node scripts/sync-earth.js"
   },
   "devDependencies": {
     "@eslint/js": "9.39.4",

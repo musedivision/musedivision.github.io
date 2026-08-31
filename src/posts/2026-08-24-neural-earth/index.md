@@ -18,7 +18,7 @@ excerpt: "The whole planet as one hash-grid MLP, evaluated per pixel in a WGSL c
 <div class="earth-wrap"><div id="earth"><img class="earth-poster" src="cover.webp" alt="" decoding="async"></div></div>
 <script type="module" src="./mount.js"></script>
 
-<p class="caption">Drag to rotate, scroll to zoom. Keys: 1–4 pick a layer, R resets, F goes fullscreen, S hides the stats.</p>
+<p class="caption">Drag to rotate, scroll to zoom. Keys: 1–3 pick a layer, R resets, F goes fullscreen, S shows the stats.</p>
 
 Everything you see above is a neural network. There is no globe texture, no tile pyramid, no mesh — each pixel casts a ray at a sphere, takes the hit point, looks it up in a multi-resolution hash grid and pushes the result through a small MLP. That happens for every pixel, every frame, in a single WebGPU compute kernel on your GPU.
 
