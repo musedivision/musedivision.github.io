@@ -11,11 +11,11 @@ excerpt: "The whole planet as one hash-grid MLP, evaluated per pixel in a WGSL c
   .post > .cover { display: none; }
   /* break out of the 42rem column */
   .earth-wrap { width: min(100vw - 3rem, 64rem); margin: 2rem 0 2rem 50%; transform: translateX(-50%); }
-  #earth { position: relative; width: 100%; aspect-ratio: 16 / 10; background: #05070d; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
+  #earth { position: relative; width: 100%; aspect-ratio: 16 / 10; background: #05080f; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
   @media (max-width: 720px) { #earth { aspect-ratio: 4 / 5; } }
 </style>
 
-<div class="earth-wrap"><div id="earth"><img class="earth-poster" src="cover.webp" alt="" decoding="async"></div></div>
+<div class="earth-wrap"><div id="earth"><img class="earth-poster" src="poster.webp" alt="" decoding="async"></div></div>
 <script type="module" src="./mount.js"></script>
 
 <p class="caption">Drag to rotate, scroll to zoom. Keys: 1–3 pick a layer, R resets, F goes fullscreen, S shows the stats.</p>
