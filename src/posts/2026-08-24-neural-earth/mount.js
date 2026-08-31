@@ -1,10 +1,9 @@
-// Gate the Neural Earth viewer behind a click (441 MB of weights), then mount it
+// Gate the Neural Earth viewer behind a click (it downloads ~441 MB of weights), then mount it
 // into #earth. Shared by the blog post (inline, in a column) and the /neural-earth/
 // demo page (full viewport) — the host page only has to size #earth.
 import { mountNeuralEarth } from './neural-earth.js';
 
 const WEIGHTS = 'https://huggingface.co/musedivision/neural-earth/resolve/main';
-const SIZE = '441 MB'; // coarse leg first (207 MB), fine leg streams in behind it
 
 const GATE_CSS = `
 #earth .earth-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; margin: 0; border: 0; opacity: .55; transition: opacity .6s ease; }
@@ -48,8 +47,7 @@ if (root) {
   // Show the door straight away; only swap it for a message if the probe says no.
   const gate = document.createElement('div');
   gate.className = 'earth-gate';
-  gate.innerHTML = `<button type="button" class="earth-start">enter</button>
-     <span class="earth-note">downloads ${SIZE} of weights</span>`;
+  gate.innerHTML = `<button type="button" class="earth-start">enter</button>`;
   root.appendChild(gate);
 
   const button = gate.querySelector('.earth-start');
