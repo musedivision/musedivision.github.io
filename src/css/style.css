@@ -68,6 +68,15 @@ body {
   to { visibility: hidden; }
 }
 
+/* one line under the name: what the work is */
+.skills {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .nav {
   display: flex;
   justify-content: center;

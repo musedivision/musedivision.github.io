@@ -137,7 +137,7 @@ function renderPostHtml({ title, date, body, cover, coverDim }) {
 </head>
 <body>
   <article class="post">
-    <a href="/blog/" class="back">&larr; back</a>
+    <a href="/" class="back">&larr; back</a>
     <header class="post-header">
       <time datetime="${isoDate}">${isoDate}</time>
       <h1>${escapeHtml(title)}</h1>

@@ -3,6 +3,7 @@ title: "Neural Earth, entangled computation"
 date: 2026-08-24
 cover: cover.png
 tags: [ml, webgpu, terrain, neural-field]
+featured: true
 excerpt: "The whole planet as one hash-grid MLP, evaluated per pixel in a WGSL compute kernel. No tiles, no textures — drag it around below."
 ---
 
