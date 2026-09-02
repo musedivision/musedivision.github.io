@@ -21,6 +21,22 @@ excerpt: "The whole planet as one hash-grid MLP, evaluated per pixel in a WGSL c
 
 <p class="caption">Drag to rotate, scroll to zoom. Keys: 1–3 pick a layer, R resets, F goes fullscreen, S shows the stats.</p>
 
-Everything you see above is a neural network. There is no globe texture, no tile pyramid, no mesh — each pixel casts a ray at a sphere, takes the hit point, looks it up in a multi-resolution hash grid and pushes the result through a small MLP. That happens for every pixel, every frame, in a single WebGPU compute kernel on your GPU.
+The globe above is using a neural texture. There is no tile pyramid, no mesh — each pixel casts a ray at a sphere, takes the hit point, looks it up in a multi-resolution hash grid and pushes the result through a small MLP. That happens for every pixel, every frame, in a single WebGPU compute kernel on your GPU.
 
-The model is a multi-scale spherical neural field. It is an [instant-NGP](https://nvlabs.github.io/instant-ngp/) style hash grid: 16 resolution levels, two features per level, hashed into a 2<sup>24</sup>-entry table, followed by a 64-wide MLP with two hidden layers. Seven output channels — RGB, elevation, tree cover and a couple of extras — come out of one forward pass, so the layer buttons just pick which channels to show.
+The model is a multi-scale spherical neural field. It is an [instant-NGP](https://nvlabs.github.io/instant-ngp/) style hash grid: 16 resolution levels, two features per level, hashed into a 2<sup>24</sup>-entry table, followed by a 64-wide MLP with two hidden layers. 3 outputs — RGB, elevation, tree cover. There is no mip map pyramid involved here. The model takes a per-pixel footprint (sigma) as input and gates the hash grid levels with it, [Zip-NeRF](https://jonbarron.info/zipnerf/) style: each level's features are scaled by erf(1 / (√8 · σ · res)), so fine levels fade out under a wide pixel footprint. When a level is gated off the kernel skips its lookups entirely, which is why zoomed-out frames are cheap.
+
+![Australia rendered by the model, with only sparkle where New Zealand should be](missingnz.png)
+
+<p class="caption">Australia is there. New Zealand is not.</p>
+
+There are lots of sparkly artifacts over the ocean because these data tiles were removed from the model training dataset. Except it seems the algorithm for removing ocean tiles was a bit aggressive. New Zealand is frequently forgotten on world maps, and I have committed the same crime accidentally here.
+
+It's a fun demo, but also a silly one. The hash grid training works, and it works because every location shares the same 2<sup>24</sup>-entry table at every hashed level. Nothing is stored per place. Anywhere on the planet can land in any table slot, so every point is entangled with every other, and querying a single pixel needs the whole grid resident on the GPU. There is no such thing as loading the area around the camera.
+
+![Zoomed deep into one of the two high-resolution regions](place1.png)
+
+![Zoomed deep into the other high-resolution region](place2.png)
+
+<p class="caption">Two places where you can keep zooming. No hints.</p>
+
+I've also left two easter egg locations where you can zoom extra deep. Another model was trained on higher res data for smaller 200km2 areas. Can you find them?
